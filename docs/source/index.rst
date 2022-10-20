@@ -73,9 +73,9 @@ PyRobotSim docs
 ..  toctree::
     :maxdepth: 2
     :caption: Virtual worlds
+    :glob:
 
-    worlds/emptyWorld.rst
-    worlds/bgImageWorld.rst
+    worlds/*
     
 
 
