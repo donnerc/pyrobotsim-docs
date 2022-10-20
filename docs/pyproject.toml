@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "prog-dynamique"
+version = "0.1.0"
+description = ""
+authors = ["Cédric Donner <cedonner@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Sphinx = "^4"
+myst-parser = "^0.18.0"
+sphinx-book-theme = "^0.3.2"
+sphinx-copybutton = "^0.5.0"
+sphinx_design = "^0.2.0"
+sphinx-autobuild = "^2021.3.14"
+sphinxcontrib-spelling = "^7.6.0"
+sphinxcontrib-bibtex = "^2.4.2"
+sphinxcontrib-youtube = "^1.2.0"
+sphinx-proof = "^0.1.3"
+sphinxcontrib-pseudocode = "^0.7.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
