@@ -1,7 +1,7 @@
 .. _emptyWorld.rst:
 
-``bgImageWorld``
-##############
+``bgImageWorld`` :bdg-secondary:`generic`
+#########################################
 
 This world is designed as a blank world without any obstacle but one background
 image. This is usefull as a basis to create a virtual world in Python.

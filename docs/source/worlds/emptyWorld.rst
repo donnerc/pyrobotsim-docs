@@ -1,7 +1,7 @@
 .. _emptyWorld.rst:
 
-``emptyWorld``
-##############
+``emptyWorld`` :bdg-secondary:`generic`
+#######################################
 
 This is the default world. It loads the Maqueen:LITE virtual robot in an empty
 world.

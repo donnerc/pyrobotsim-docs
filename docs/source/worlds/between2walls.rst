@@ -1,7 +1,7 @@
 .. _emptyWorld.rst:
 
-``between2walls``
-#################
+``between2walls`` :bdg-primary:`beginner`
+#########################################
 
 This is a beginner world designed to learn basic robot control and distance
 measuring with the US sensor. The robot must go from one wall to the other

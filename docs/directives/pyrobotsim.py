@@ -22,13 +22,14 @@ def visit_pyrobotsim_html(self, node):
     base64_code = b64encode(node["code"].encode("UTF-8")).decode("UTF-8")
 
     options = set(PyRobotSim.option_spec.keys()).difference(
-        ["code", "scrollx", "scrolly", "extra_args", "showtitle"]
+        ["code", "scrollx", "scrolly", "robot_type", "extra_args", "showtitle"]
     )
 
     query_args = {k: node[k] for k in options}
     query_args["main"] = base64_code
-    query_args["scrollX"] = node['scrollx']
-    query_args["scrollY"] = node['scrolly']
+    query_args["scrollX"] = node["scrollx"]
+    query_args["scrollY"] = node["scrolly"]
+    query_args["robotType"] = node["robot_type"]
 
     width = node["width"]
     height = node["height"]
@@ -37,24 +38,21 @@ def visit_pyrobotsim_html(self, node):
     if "%" in width:
         width_percent = float(width.split("%")[0])
         left_shift = (width_percent - 100) / 2
-        
-        
 
     # logger.info(f"extra args: {node['extra_args']}")
 
     for arg, value in node["extra_args"].items():
         query_args[arg] = value
 
-
-
     query_string = "&".join([f"{k}={v}" for k, v in query_args.items()])
 
-    #logger.info(f"Query args: {query_args}")
-    #logger.info(f"Query string: {query_string}")
+    # logger.info(f"Query args: {query_args}")
+    # logger.info(f"Query string: {query_string}")
 
-    url = f'''{node["pyrobotsim_root_url"]}?{query_string}'''
-    self.body.append(f'''<a target="_blank" href="{url}">{node["showtitle"]}</a>''')
-    self.body.append(f'''
+    url = f"""{node["pyrobotsim_root_url"]}?{query_string}"""
+    self.body.append(f"""<a target="_blank" href="{url}">{node["showtitle"]}</a>""")
+    self.body.append(
+        f"""
         <iframe src="{url}"
             class="pyrobotsim-frame"
             frameborder="0"
@@ -63,7 +61,7 @@ def visit_pyrobotsim_html(self, node):
             width="{width}"
             height="{height}"
             style="resize:both; position:relative; left:-{left_shift}%"
-        >'''
+        >"""
     )
 
 
@@ -80,13 +78,14 @@ def visit_pyrobotsim_latex(self, node):
 def depart_pyrobotsim_latex(self, node):
     self.body.append("\n \\end{lstlisting}")
 
-def parse_extra_args(argument):
-    pairs = [x.strip().split('=') for x in argument.strip().split('&')]
-    return {arg.strip(): value.strip() for arg, value in pairs}
-    
-def parse_files(argument):
-    return argument.replace(' ', '')
 
+def parse_extra_args(argument):
+    pairs = [x.strip().split("=") for x in argument.strip().split("&")]
+    return {arg.strip(): value.strip() for arg, value in pairs}
+
+
+def parse_files(argument):
+    return argument.replace(" ", "")
 
 
 class PyRobotSim(SphinxDirective):
@@ -104,25 +103,27 @@ class PyRobotSim(SphinxDirective):
         "scrollx": int,
         "scrolly": int,
         "camera": lambda arg: directives.choice(arg, ("free", "follow")),
+        "robot_type": lambda arg: directives.choice(arg, ("lite", "plus1")),
         "height": directives.length_or_percentage_or_unitless,
         "width": directives.length_or_percentage_or_unitless,
         "extra_args": parse_extra_args,
         "showtitle": directives.unchanged,
-        "files": parse_files
+        "files": parse_files,
     }
     has_content = True
-
 
     def run(self):
         def get_option(opt_name, default_value):
             return opt_name in self.options and self.options[opt_name] or default_value
 
         self.assert_has_content()
+
+        ### config values
         pyrobotsim_root_url = self.env.config.pyrobotsim_root_url
+        pyrobotsim_height = self.env.config.pyrobotsim_height
 
         code_lines = self.content
         code = "\n".join(code_lines)
-        default_height = "700px"
 
         container = pyrobotsim(
             "",
@@ -138,10 +139,11 @@ class PyRobotSim(SphinxDirective):
             scrolly=get_option("scrolly", 0),
             camera=get_option("camera", "free"),
             width=get_option("width", "110%"),
-            height=get_option("height", self.env.config.pyrobotsim_height),
+            height=get_option("height", pyrobotsim_height),
             extra_args=get_option("extra_args", {}),
             showtitle=get_option("showtitle", "Show in separate window"),
             files=get_option("files", []),
+            robot_type=get_option("robot_type", "LITE"),
             pyrobotsim_root_url=pyrobotsim_root_url,
         )
         self.set_source_info(container)

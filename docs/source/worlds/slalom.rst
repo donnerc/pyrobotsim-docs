@@ -1,7 +1,7 @@
 .. _emptyWorld.rst:
 
-``slalom``
-##########
+``slalom`` :bdg-primary:`beginner`
+##################################
 
 This is a beginner world designed to learn basic robot control. The robot must
 slalom around the circular walls.

@@ -52,6 +52,8 @@ configurable through the URL query parameters.
     - ``scrollX`` : initial :math:`x`-scroll of the camera
     - ``scrollY`` : initial :math:`y`-scroll of the camera
     - ``camera`` : camera mode (``free`` or ``follow``)
+    - ``robotType`` : robot to use. Can be one of (``lite`` for Maqueen:LITE or
+      ``plus1`` for Maqueen:PLUS V1)
 
 
 ..  pyrobotsim::
@@ -67,6 +69,7 @@ configurable through the URL query parameters.
     :angle: 45
     :files: mbrobot.py,microbit.py,mbalarm.py,robotsim.py
     :zoom: -1
+    :robot_type: plus1 
     :extra_args: bg=trail.gif&bgScale=1.4
 
     from mbrobot import *
