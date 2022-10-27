@@ -129,3 +129,6 @@ Further ressources
 - Helper for running pyodide in a web worker and interrupting code :
   https://github.com/alexmojaki/pyodide-worker-runner. Uses ``sync-message``
   internally.
+
+- https://blog.stackblitz.com/posts/cross-browser-with-coop-coep/ |
+  https://github.com/WICG/credentiallessness
