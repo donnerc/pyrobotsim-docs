@@ -106,7 +106,7 @@ defined in the ``mbrobot`` module.
     :world: simpleTrail
     :height: 800px
     :vsplit: 40
-    :hsplit: 300
+    :hsplit: 500
     :zoom: -3
     :scrolly: -120
     :scrollx: 200
@@ -188,8 +188,12 @@ wall.
 
 ..  pyrobotsim::
     :world: slalom
-    :height: 400px
-    :scrollx: 50
+    :height: 500px
+    :hsplit: 300
+    :zoom: -3
+    :scrollx: -350
+    :scrolly: -830
+
 
     from mbrobot import *
 
@@ -253,9 +257,10 @@ returns the ``int`` value 255.
 
 ..  pyrobotsim::
     :world: slalom
-    :height: 600px
-    :scrollx: 50
-    :hsplit: 250
+    :height: 500px
+    :hsplit: 300
+    :zoom: -2
+    :vsplit: 30
 
     from mbrobot import *
 
