@@ -8,14 +8,14 @@
 
     This is a rather advanced scenario, where a naive stateless approach does
     not work. The aim of the scenario is to program to robot to let it follow
-    the "ant" track, that is a track formed by marks on the ground with space in
-    between. The fact that the robot only "sees" a mark when the IR sensors pass
-    over it avoids any kind of "planning". There for, the decisions and strategy
-    cannot only depend on the values measured by the IR sensor but has to rely
-    on another context related information, that is to say state.
+    the "ant" track made of marks on the ground with space in between. The fact
+    that the robot doesn't "see" a mark unless the IR sensors passes over it
+    prevents any "planning". Therefore, the decisions and strategy cannot only
+    depend on the values measured by the IR sensor but has to rely on another
+    context related information, that is to say state.
 
     This world is a good opportunity to motivate state diagrams and to learn how
-    to implement a a program where decisions also depend on the state of one or
+    to implement a program where decisions also depend on the state of one or
     several variables.
 
 ..  admonition:: Source file
@@ -34,8 +34,7 @@ Demo level 0
 ============
 
 The track is generated randomly each time. The track always turns to the right
-only. The track pieces are have a decent width and length that don't vary too
-much.
+only. The track pieces have a decent width and lengths that don't vary too much.
 
 ..  pyrobotsim::
     :world: ant
@@ -52,9 +51,9 @@ much.
 Demo level 1
 ============
 
-The track is generated randomly each time. The track always turns to the left
-only. The track pieces are slightly thinner and their length and spacing varies
-a little more than level 0.
+The track is generated randomly each time. The track turns to the left only. The
+track pieces are slightly thinner and their lengths and spacings vary a little
+more compared to level 0.
 
 
 ..  pyrobotsim::
