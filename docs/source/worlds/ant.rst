@@ -72,7 +72,7 @@ Demo level 2
 ============
 
 The track is generated randomly each time. From this level on, the track may
-turn left or right. The length and spacing between the pieces vary even more.
+turn left or right. The lengths and spacings between the pieces vary even more.
 
 ..  pyrobotsim::
     :world: ant
