@@ -96,6 +96,7 @@ html_theme_options = {
     "use_download_button": True,
     "show_navbar_depth": 1,
     "repository_url": infos.repository_url,
+    "repository_branch": "main",
     # "use_issues_button": True,
     "use_edit_page_button": True,
 }
