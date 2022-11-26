@@ -59,3 +59,6 @@ getpdf:
 
 surge: clean html
 	surge build/html/ $(TARGET).surge.sh
+
+requirements: 
+	poetry export --without-hashes -f requirements.txt --output requirements.txt
