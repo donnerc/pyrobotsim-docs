@@ -1,106 +1,86 @@
-run
-# Documentation du TM informatique 2022-2023 (Développement Web)
 
-## Installation des dépendances
+# PyRobotSim documentation
 
-Dans ce projet, les dépendances sont gérées grâce à `poetry`. Il faut donc
-commencer par installer le gestionnaire de packages Python `poetry` avec 
+## Installing dependencies
+
+The dependencies are managed by `poetry`, which can be installed with following
+command:
 
 ```{bash}
 curl -sSL https://install.python-poetry.org | python3 -
 ```
 
-On peut ensuite installer les dépendances avec 
+The dependencies can then be installed through
 
 ```{bash}
 poetry install
 ```
 
+## Build the documentation
+
+### Build the online documentation
 
 
-## Configuration de Sphinx
 
-Il faut insérer vos informations (auteur, titre, ... ) dans le fichier
-`source/tmconfig.py`. Ce fichier est ensuite automatiquement importé dans le module `conf.py` qui permet de configurer Sphinx.
-
-## Génération des documents cibles
-
-### Compilation en HTML
-
-Pour compiler les fichiers Sphinx en HTML, il faut entrer la commande suivante depuis le dossier racine du projet contenant le fichier `Makefile` :
+To compile the Sphinx files into HTML, enter the following command from the root
+folder of the project containing the `Makefile` :
 
 ```bash
 make livehtml
 ```
 
-### Compilation en LaTeX (PDF)
+### Build the LaTeX (PDF) documentation
 
-Pour pouvoir générer le PDF, il faut au préalable installer LaTeX sur le système. Sur un système Linux, il suffit de faire les commandes
+To be able to generate the PDF, you must first install LaTeX on your system. On
+a Linux system, you just have to issue the commands
 
 ```bash
 sudo apt update
 sudo apt-get install texlive-latex-extra texlive-lang-french texlive-fonts-recommended latexmk
 ```
 
-Sur les machines Windows, l'installation risque d'être plus compliquée, raison pour laquelle il est conseillé de compiler votre travail directement dans Cloud9 ou dans le Bash Ubuntu de Windows 10.
-
-Ensuite, pour générer le PDF, il suffit de faire depuis la racine du dépôt où se trouve le fichier `Makefile` principal :
+To generate the PDF, issue the following command in project root _
 
 ```bash
 make tmpdf
 ```
 
-et de se rendre dans le dossier `build/latex/` et ouvrir le fichier `tm-ecrit.pdf` généré par LaTeX.
+The PDF output is then output to the `build/latex/` folder.
 
-## Visualisation des pages HTML générées
+## Live development (HTML preview)
 
-### Depuis une machine de développement locale
+### On a local machine
 
-Il suffit ensuite, pour visualiser le résultat, de visiter http://localhost:8000/ dans le navigateur Web.
+Then, to view the result, simply visit http://localhost:8000/ in the web
+browser.
 
-## Cloner le dépôt
+## Edit online with the gitpod.io cloud IDE
 
-Le plus simple, pour démarrer, est de forker ce dépôt dans votre propre compte
-GitHub et cloner ce dernier sur votre machine locale ou dans un IDE en ligne tel
-que Gitpod.
+The Gitpod online IDE allows to have complete virtual machines on which to run
+the Sphinx / LaTeX on which to run the Sphinx / LaTeX toolchain to write the
+documentation of TM projects in computer science.
 
-## Édition en ligne avec gitpod.io
+Here are the steps to follow:
 
-L'IDE en ligne Gitpod permet de disposer de machines virtuelles complètes sur
-lesquelles faire tourner la chaines d'outils Sphinx / LaTeX pour écrire la
-documentation des projets de TM en informatique.
+1. Fork the https://github.com/informatiquecsud/sphinx-tm-template/ repository
+   into your GitHub account.
 
-Voici les étapes à suivre:
+2. Open your version of the repository on GitHub and, in the address bar of your
+   browser, add `https://gitpod.io#` to the far left of the address of your
+   GitHub repository. For this to work, you must have an account on the platform
+   https://gitpod.io/.
 
-1. Forker le dépôt https://github.com/informatiquecsud/sphinx-tm-template/ dans
-   votre compte GitHub.
+3. In Gitpod, install the dependencies
 
-2. Ouvrir votre version du dépôt sur GitHub et, dans la barre d'adresse du
-   navigateur Web, rajouter `https://gitpod.io#` tout à gauche de l'adresse de
-   votre dépôt GitHub. Pour que cela fonctionne, vous devez avoir un compte sur
-   la plateforme https://gitpod.io/.
-
-3. Dans Gitpod, il faut commencer par installer Sphinx avec
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Vous pouvez ensuite générer le HTML avec
+4. You can then generate the HTML with
 
    ```bash
    make livehtml
    ```
 
-5. Pour générer le PDF, il suffit d'exécuter la commande suivante dans un
-   terminal.
+5. To generate the PDF, simply run the following command in a terminal.
 
    ```bash
    make tmpdf
    ```
 
-## Installation de LaTeX
-
-### Sur Gitpod
-
-### Sur Linux Ubuntu
