@@ -18,12 +18,19 @@ poetry install
 
 ## Build the documentation
 
+## Activating the virtual environment
+
+Most commands from `Makefile` require the `poetry` virtual environment to be
+activated. The folloewing command has to be run in the project directory:
+
+```bash
+poetry shell
+```
+
 ### Build the online documentation
 
-
-
-To compile the Sphinx files into HTML, enter the following command from the root
-folder of the project containing the `Makefile` :
+To build the documentation and for live development server, use the following
+command from the root folder of the project containing the `Makefile` :
 
 ```bash
 make livehtml

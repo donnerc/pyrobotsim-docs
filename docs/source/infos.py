@@ -9,7 +9,7 @@ class DocumentInfos:
     seminary_title = u'PyRobotSim'
     tutor = u""
     release = "0.1"
-    repository_url = "https://github.com/informatiquecsud/tm-donc-jobj-2223"
+    repository_url = "https://github.com/donnerc/pyrobotsim-docs"
     language = 'en'
 
     @classmethod
